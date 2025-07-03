@@ -4,9 +4,12 @@
   "type": "module",
   "scripts": {
     "build": "react-router build",
-    "dev": "react-router dev",
+    "dev": "react-router dev --open",
     "start": "react-router-serve ./build/server/index.js",
-    "typecheck": "react-router typegen && tsc"
+    "typecheck": "react-router typegen && tsc",
+    "lint": "npx eslint .",
+    "fmt": "npx prettier . --write",
+    "flt": "npx prettier . --check && react-router typegen && tsc && npx eslint . "
   },
   "dependencies": {
     "@react-router/node": "^7.5.3",
@@ -17,13 +20,19 @@
     "react-router": "^7.5.3"
   },
   "devDependencies": {
+    "@eslint/js": "^9.30.1",
     "@react-router/dev": "^7.5.3",
     "@tailwindcss/vite": "^4.1.4",
     "@types/node": "^20",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
+    "eslint": "^9.30.1",
+    "eslint-plugin-react": "^7.37.5",
+    "globals": "^16.3.0",
+    "prettier": "3.6.2",
     "tailwindcss": "^4.1.4",
     "typescript": "^5.8.3",
+    "typescript-eslint": "^8.35.1",
     "vite": "^6.3.3",
     "vite-tsconfig-paths": "^5.1.4"
   }

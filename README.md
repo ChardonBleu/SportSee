@@ -1,4 +1,4 @@
-# Welcome to SportSee
+# ![sportSee](public/logo.png) Welcome to SportSee
 
 This app is the Projet 12 of Openclassrooms training Javascript React
 I choose to use framework mode from React Router v7, including a default template:
@@ -16,6 +16,12 @@ I choose to use framework mode from React Router v7, including a default templat
 - 📖 [React Router docs](https://reactrouter.com/)
 
 ## Getting Started
+
+Clone the project in a directory:
+
+```bash
+git clone https://github.com/ChardonBleu/SportSee
+```
 
 ### Installation
 
@@ -35,7 +41,6 @@ npm run dev
 
 Your application will be available at `http://localhost:5173`.
 
-
 ### Linter
 
 Install the dependencies:
@@ -51,7 +56,6 @@ Install the dependencies:
 ```bash
 npm run fmt
 ```
-
 
 ### Checking fot typing
 
@@ -108,6 +112,22 @@ Make sure to deploy the output of `npm run build`
 ## Styling
 
 This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+
+## Ressources:
+
+- Documentation Réact [https://fr.react.dev/learn](https://fr.react.dev/learn).
+
+- Documentation Vite [https://vitejs.fr/guide/](https://vitejs.fr/guide/).
+
+- Documentation TypeScript avec React [https://react-typescript-cheatsheet.netlify.app/docs](https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/basic_type_example).
+
+- documentation React Router [https://reactrouter.com/home](https://reactrouter.com/home)
+
+- Router React V7 par PedroTech [https://www.youtube.com/watch?v=h7MTWLv3xvw](https://www.youtube.com/watch?v=h7MTWLv3xvw)
+
+## Thanks
+
+Many thanks to Herbert Caffarel for his valuable advices and feedbacks.
 
 ---
 
