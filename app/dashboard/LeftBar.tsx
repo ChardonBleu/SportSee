@@ -1,12 +1,14 @@
 export function LeftBar() {
   return (
     <>
-        <aside className="flex flex-col justify-end items-center">
-            <img src="icon-yoga.png" alt="bouton yoga" className="cursor-pointer"></img>
-            <img src="icon-swim.png" alt="bouton yoga" className="cursor-pointer"></img>
-            <img src="icon-bike.png" alt="bouton yoga" className="cursor-pointer"></img>
-            <img src="icon-muscle.png" alt="bouton yoga" className="cursor-pointer"></img>
-            <p className="-rotate-90">Copiryght, SportSee 2020</p>
+        <aside className="flex flex-col items-center justify-between bg-coal w-24 pt-[15%] h-dvh">
+          <div className="flex flex-col gap-6">
+            <img src="icon-yoga.png" alt="bouton yoga" className="cursor-pointer" width="40px"></img>
+            <img src="icon-swim.png" alt="bouton yoga" className="cursor-pointer"  width="40px"></img>
+            <img src="icon-bike.png" alt="bouton yoga" className="cursor-pointer"  width="40px"></img>
+            <img src="icon-muscle.png" alt="bouton yoga" className="cursor-pointer"  width="40px"></img>
+          </div>
+          <p className="writing-vertical-lr rotate-180 text-white text-xs mb-[120%]">Copyright, SportSee 2020</p>
         </aside>
     </>
 

@@ -4,14 +4,20 @@
   --font-sans:
     "Roboto", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --tomato: #ff0101;
-  --coal: #020203;
-  --cream: #e5e5e5;
+  --color-tomato: #ff0101;
+  --color-coal: #020203;
+  --color-cream: #e5e5e5;
+}
+
+@utility writing-vertical-lr {
+  writing-mode: vertical-lr;
 }
 
 body {
    display: flex;
    flex-direction: column;
-   justify-content: center;
    align-items: center;
+   min-height: 780px;
+   font-family: var(--font-sans);
+   font-weight: 400;
 }
