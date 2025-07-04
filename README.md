@@ -1,9 +1,7 @@
-# ![sportSee](public/logo.png) Welcome to SportSee
+# ![sportSee](public/logo.png)
 
 This app is the Projet 12 of Openclassrooms training Javascript React
 I choose to use framework mode from React Router v7, including a default template:
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
 
 ## Features
 
