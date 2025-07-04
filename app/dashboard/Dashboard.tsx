@@ -5,9 +5,9 @@ export function Dashboard() {
   return (
     <>
       <Header />
-      <main className="flex justify-left items-center">
+      <main className="flex w-full">
         <LeftBar />
-        <section className="flex flex-col">
+        <section className="flex flex-col p-4 w-full">
           <h2>Bonjour Thomas</h2>
           <h3>Félicitation ! Vous avez explosé vos objectifs hier 👏</h3>
           <div className="flex justify-center items-center">
@@ -27,13 +27,7 @@ export function Dashboard() {
             </div>
           </div>
         </section>
-
-
-
-
-
       </main>
     </>
-
   );
 }
