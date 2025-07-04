@@ -8,3 +8,10 @@
   --coal: #020203;
   --cream: #e5e5e5;
 }
+
+body {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
