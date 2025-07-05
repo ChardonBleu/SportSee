@@ -8,7 +8,7 @@ export function Header() {
             <NavLink to="/" className="cursor-pointer text-white font-medium text-xl">Accueil</NavLink>
             <NavLink to="/" className="cursor-pointer text-white font-medium text-xl">Profil</NavLink>
             <NavLink to="/" className="cursor-pointer text-white font-medium text-xl">Réglage</NavLink>
-            <NavLink to="/" className="cursor-pointer text-white font-medium text-xl">Communaté</NavLink>
+            <NavLink to="/" className="cursor-pointer text-white font-medium text-xl">Communauté</NavLink>
         </header>
     </>
 

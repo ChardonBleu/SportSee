@@ -5,8 +5,10 @@
     "Roboto", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --color-tomato: #ff0101;
-  --color-coal: #020203;
+  --color-coal: #282D30;
   --color-cream: #e5e5e5;
+  --color-ashes: #979797;
+  --color-dust: #FBFBFB;
 }
 
 @utility writing-vertical-lr {
@@ -20,4 +22,7 @@ body {
    min-height: 780px;
    font-family: var(--font-sans);
    font-weight: 400;
+   font-size: 18px;
+   background-color: white;
+   height: 100dvh;
 }
