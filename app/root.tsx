@@ -10,6 +10,7 @@ import {
 
 import type { Route } from "./+types/root";
 import "./app.css";
+import { Header } from "./dashboard/Header";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -23,6 +24,13 @@ export const links: Route.LinksFunction = () => [
     href: "https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap",
   },
 ];
+
+export function meta() {
+  return [
+    { title: "SportSee" },
+    { name: "description", content: "Welcome to SportSee!" },
+  ];
+}
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -43,7 +51,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  // A terme valeur de l'id pour le Header à remplacer par valeur fournie par authentification
+  return (
+    <>
+      <Header id={18} />
+      <Outlet />
+    </>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
@@ -72,7 +86,7 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
         </pre>
       )}
       <NavLink to="/" className="font-light mt-50 underline">
-        Retour au Dashboard
+        Retour à l&#39accueil
       </NavLink>
     </main>
   );
