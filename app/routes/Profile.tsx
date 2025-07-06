@@ -7,6 +7,7 @@ import type { Route } from "../routes/+types/Profile";
 import type { User } from "~/types/userTypes";
 import { GraphScore } from "~/dashboard/GraphScore";
 import { fetchUser } from "~/api/fetchUser";
+import { Loader } from "../utilities/Loader";
 
 export async function clientLoader({ params }: Route.ClientLoaderArgs) {
   const user = await fetchUser(params.userId);
@@ -14,12 +15,12 @@ export async function clientLoader({ params }: Route.ClientLoaderArgs) {
 }
 
 export function HydrateFallback() {
-  return <p>Loading Profile...</p>;
+  return <Loader />;
 }
 
 export default function Profile({ loaderData }: Route.ComponentProps) {
   if (!loaderData) {
-    throw new Error("sorry, no datas!");
+    throw new Error("sorry, no user datas!");
   }
 
   const user: User = loaderData;
@@ -40,7 +41,7 @@ export default function Profile({ loaderData }: Route.ComponentProps) {
           <h3>Félicitation ! Vous avez explosé vos objectifs hier 👏</h3>
           <div className="flex w-full h-[85%] pt-8 pb-8">
             <div className="flex flex-col w-full">
-              <GraphActivity />
+              <GraphActivity userId={user.id} />
               <div className="flex  w-full h-[50%] gap-6 mt-6 ">
                 <GraphSessions />
                 <GraphPerformance />

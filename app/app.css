@@ -26,3 +26,25 @@ body {
   background-color: white;
   height: 100dvh;
 }
+
+.loader {
+  width: 200px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  padding: 3px;
+  background:
+    radial-gradient(farthest-side, var(--color-tomato) 95%, #0000) 50% 0/30px
+      30px no-repeat,
+    radial-gradient(
+        farthest-side,
+        #0000 calc(100% - 20px),
+        var(--color-tomato) calc(100% - 20px)
+      )
+      content-box;
+  animation: l6 1s infinite;
+}
+@keyframes l6 {
+  to {
+    transform: rotate(1turn);
+  }
+}
