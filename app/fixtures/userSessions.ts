@@ -1,0 +1,23 @@
+// graphe durée moyenne des sessions
+import type { Sessions } from "~/types/sesssionTypes";
+
+const data = {
+  data: {
+    userId: 12,
+    sessions: [
+      { day: 1, sessionLength: 30 },
+      { day: 2, sessionLength: 23 },
+      { day: 3, sessionLength: 45 },
+      { day: 4, sessionLength: 50 },
+      { day: 5, sessionLength: 0 },
+      { day: 6, sessionLength: 0 },
+      { day: 7, sessionLength: 60 },
+    ],
+  },
+};
+
+// {"data":{"userId":18,"sessions":[{"day":1,"sessionLength":30},{"day":2,"sessionLength":40},{"day":3,"sessionLength":50},{"day":4,"sessionLength":30},{"day":5,"sessionLength":30},{"day":6,"sessionLength":50},{"day":7,"sessionLength":50}]}}
+
+const userSession: Sessions = data.data;
+
+export default userSession;

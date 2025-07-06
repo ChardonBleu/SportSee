@@ -1,9 +1,9 @@
-interface Session {
-    day: number;
-    sessionLength: number;
+interface sessionsSession {
+  day: number;
+  sessionLength: number;
 }
 
 export interface Sessions {
-    userId: number;
-    sessions: Array<Session>
+  userId: number;
+  sessions: Array<sessionsSession>;
 }

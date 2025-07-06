@@ -3,8 +3,9 @@
 export function GraphActivity() {
   return (
     <>
-        <section className="bg-dust rounded-md w-full h-[50%]">Activité quotidienne</section>
+      <section className="bg-dust rounded-md w-full h-[50%]">
+        Activité quotidienne
+      </section>
     </>
-
   );
 }

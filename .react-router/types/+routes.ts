@@ -13,15 +13,24 @@ type Pages = {
   "/": {
     params: {};
   };
+  "/profile/:userId": {
+    params: {
+      "userId": string;
+    };
+  };
 };
 
 type RouteFiles = {
   "root.tsx": {
     id: "root";
-    page: "/";
+    page: "/" | "/profile/:userId";
   };
-  "routes/home.tsx": {
+  "./routes//home.tsx": {
     id: "routes/home";
     page: "/";
+  };
+  "./routes/Profile.tsx": {
+    id: "routes/Profile";
+    page: "/profile/:userId";
   };
 };
