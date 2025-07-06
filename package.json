@@ -4,8 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "react-router build",
-    "dev": "react-router dev --open",
-    "start": "react-router-serve ./build/server/index.js",
+    "start": "react-router dev --open",
     "typecheck": "react-router typegen && tsc",
     "lint": "npx eslint .",
     "fmt": "npx prettier . --write",

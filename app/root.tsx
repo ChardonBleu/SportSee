@@ -62,7 +62,7 @@ export default function App() {
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   let message = "Zut!";
-  let details = "Une erreur inattendue est survenue.";
+  let details = "Une; erreur inattendue est survenue.";
   let stack: string | undefined;
 
   if (isRouteErrorResponse(error)) {
@@ -86,7 +86,7 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
         </pre>
       )}
       <NavLink to="/" className="font-light mt-50 underline">
-        Retour à l&#39accueil
+        Retour à l&#39;accueil
       </NavLink>
     </main>
   );
