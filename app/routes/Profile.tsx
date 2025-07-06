@@ -3,19 +3,23 @@ import { GraphActivity } from "../dashboard//GraphActivity";
 import { GraphSessions } from "../dashboard//GraphSession";
 import { GraphPerformance } from "../dashboard//GraphPerformance";
 import { KeyDataCard } from "../dashboard//KeyDataCard";
-import { mockFetchUser } from "~/api/fetchUser";
-import type { Route } from "../routes/+types/home";
+import type { Route } from "../routes/+types/Profile";
 import type { User } from "~/types/userTypes";
 import { GraphScore } from "~/dashboard/GraphScore";
+import { fetchUser } from "~/api/fetchUser";
 
-export async function loader() {
-  const user = mockFetchUser();
+export async function clientLoader({ params }: Route.ClientLoaderArgs) {
+  const user = await fetchUser(params.userId);
   return user;
+}
+
+export function HydrateFallback() {
+  return <p>Loading Profile...</p>;
 }
 
 export default function Profile({ loaderData }: Route.ComponentProps) {
   if (!loaderData) {
-    throw new Error("no datas");
+    throw new Error("sorry, no datas!");
   }
 
   const user: User = loaderData;
