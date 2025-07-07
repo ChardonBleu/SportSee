@@ -4,6 +4,7 @@ interface PerformanceData {
 }
 
 interface Kind {
+  [key: string]: string;
   1: string;
   2: string;
   3: string;
