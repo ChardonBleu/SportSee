@@ -1,25 +1,29 @@
-// Ajouter loader avec userSessions
 import { useEffect, useState } from "react";
 import { fetchUserSessions } from "~/api/fetchUserSessions";
 import { Loader } from "~/utilities/Loader";
 import type { Sessions } from "~/types/sesssionTypes";
 
+/**
+ * Component for dayli sessions
+ * @param { String } userId id of the user
+ * @return { ReactElement }
+ */
 export function GraphSessions({ userId }: { userId: number }) {
-  const [Sessions, setSessions] = useState(null);
+  const [UserSessions, setUserSessions] = useState<Sessions | null>(null);
 
   useEffect(() => {
-    const fetchSessionsData = async () => {
+    const fetchUserSessionsData = async () => {
       const data = await fetchUserSessions(userId);
-      setSessions(data);
+      setUserSessions(data);
     };
-    fetchSessionsData();
+    fetchUserSessionsData();
   }, [userId]);
 
-  if (!Sessions) {
+  if (!UserSessions) {
     return <Loader />;
   }
 
-  const sessions: Sessions = Sessions;
+  const sessions: Sessions = UserSessions;
   return (
     <>
       <section className="bg-tomato rounded-md w-1/3 p-4">

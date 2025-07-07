@@ -1,4 +1,10 @@
-export function LeftBar() {
+import { type ReactElement } from "react";
+
+/**
+ * Header Component for all routes
+ * @return { ReactElement }
+ */
+export function LeftBar(): ReactElement {
   return (
     <>
       <aside className="flex flex-col items-center justify-between bg-coal w-24 pt-[15%] h-full">
