@@ -43,7 +43,7 @@ export default function Profile({ loaderData }: Route.ComponentProps) {
             <div className="flex flex-col w-full">
               <GraphActivity userId={user.id} />
               <div className="flex  w-full h-[50%] gap-6 mt-6 ">
-                <GraphSessions />
+                <GraphSessions userId={user.id} />
                 <GraphPerformance />
                 <GraphScore score={user.score} />
               </div>

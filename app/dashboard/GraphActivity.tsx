@@ -23,9 +23,16 @@ export function GraphActivity({ userId }: { userId: number }) {
 
   return (
     <>
-      <section className="bg-dust rounded-md w-full h-[50%]">
+      <section className="bg-dust rounded-md w-full h-[50%] p-4">
         <p>Activité quotidienne</p>
-        <pre>{activity.userId}</pre>
+        <div className="p-4">
+          {activity.sessions.map((dailySession) => (
+            <p key={activity.sessions.indexOf(dailySession)}>
+              {dailySession.day} : {dailySession.calories}kCal -{" "}
+              {dailySession.kilogram}kg
+            </p>
+          ))}
+        </div>
       </section>
     </>
   );
