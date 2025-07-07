@@ -1,10 +1,16 @@
 import type { KeyDataCardProps } from "~/types/userTypes";
+import { type ReactElement } from "react";
 
+/**
+ * Component for key Card data
+ * @param { KeyDataCardProps } { keyDataCount value of the indicator, title indicator, imageUrl logo indicator }
+ * @return { ReactElement }
+ */
 export function KeyDataCard({
   keyDataCount,
   title,
   imageUrl,
-}: KeyDataCardProps) {
+}: KeyDataCardProps): ReactElement {
   return (
     <>
       <section className="bg-dust rounded-md h-1/4 flex items-center gap-8 pl-8">

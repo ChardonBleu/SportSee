@@ -1,10 +1,12 @@
 import { NavLink } from "react-router";
+import { type ReactElement } from "react";
 
-interface HeaderProps {
-  id: number;
-}
-
-export function Header({ id }: HeaderProps) {
+/**
+ * Header Component for all routes
+ * @param { id } id of the user as an integer
+ * @return { ReactElement }
+ */
+export function Header({ id }: { id: number }): ReactElement {
   return (
     <>
       <header className="flex justify-between items-center  h-20 bg-coal w-full gap-[10%] pl-4 pr-[5%] shadow-md/25">

@@ -1,11 +1,12 @@
-import { LeftBar } from "../dashboard/LeftBar";
-import { GraphActivity } from "../dashboard//GraphActivity";
-import { GraphSessions } from "../dashboard//GraphSession";
-import { GraphPerformance } from "../dashboard//GraphPerformance";
-import { KeyDataCard } from "../dashboard//KeyDataCard";
+import type { ReactElement } from "react";
+import { LeftBar } from "../components/LeftBar";
+import { GraphActivity } from "../components/GraphActivity";
+import { GraphSessions } from "../components/GraphSession";
+import { GraphPerformance } from "../components/GraphPerformance";
+import { KeyDataCard } from "../components/KeyDataCard";
 import type { Route } from "../routes/+types/Profile";
 import type { User } from "~/types/userTypes";
-import { GraphScore } from "~/dashboard/GraphScore";
+import { GraphScore } from "~/components/GraphScore";
 import { fetchUser } from "~/api/fetchUser";
 import { Loader } from "../utilities/Loader";
 
@@ -18,7 +19,13 @@ export function HydrateFallback() {
   return <Loader />;
 }
 
-export default function Profile({ loaderData }: Route.ComponentProps) {
+/**
+ *Profil Component with all user datas
+ * @return { ReactElement }
+ */
+export default function Profile({
+  loaderData,
+}: Route.ComponentProps): ReactElement {
   if (!loaderData) {
     throw new Error("sorry, no user datas!");
   }
@@ -44,7 +51,7 @@ export default function Profile({ loaderData }: Route.ComponentProps) {
               <GraphActivity userId={user.id} />
               <div className="flex  w-full h-[50%] gap-6 mt-6 ">
                 <GraphSessions userId={user.id} />
-                <GraphPerformance userId={user.id}/>
+                <GraphPerformance userId={user.id} />
                 <GraphScore score={user.score} />
               </div>
             </div>

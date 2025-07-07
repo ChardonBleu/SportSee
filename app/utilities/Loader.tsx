@@ -1,3 +1,7 @@
+/**
+ * Loader compoenet
+ * @return { ReactElement }
+ */
 export function Loader() {
   return (
     <>
