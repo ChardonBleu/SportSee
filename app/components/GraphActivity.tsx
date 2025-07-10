@@ -35,17 +35,10 @@ export function GraphActivity({ userId }: { userId: number }): ReactElement {
         setGraphDimensions({ width, height });
       }
     };
-
-    // Appeler handleGraphDimensions immédiatement pour obtenir les dimensions initiales
-    // Ajoutez un délai pour s'assurer que le DOM est prêt
     const timer = setTimeout(() => {
       handleGraphDimensions();
     }, 100);
-
-    // Ajouter un écouteur d'événement pour les redimensionnements
     window.addEventListener("resize", handleGraphDimensions);
-
-    // Nettoyer l'écouteur d'événement lors du démontage du composant
     return () => {
       window.removeEventListener("resize", handleGraphDimensions);
       clearTimeout(timer);
