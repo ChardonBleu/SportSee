@@ -11,11 +11,11 @@ import { Tooltip, LineChart, Line } from "recharts";
  */
 export function GraphSessions({ userId }: { userId: number }) {
   const [UserSessions, setUserSessions] = useState<Sessions | null>(null);
-    const graphsessionsRef = useRef<HTMLDivElement>(null);
-    const [graphDimensions, setGraphDimensions] = useState({
-      width: 400,
-      height: 100,
-    });
+  const graphsessionsRef = useRef<HTMLDivElement>(null);
+  const [graphDimensions, setGraphDimensions] = useState({
+    width: 400,
+    height: 100,
+  });
 
   useEffect(() => {
     const fetchUserSessionsData = async () => {
@@ -31,7 +31,7 @@ export function GraphSessions({ userId }: { userId: number }) {
         let { width, height } =
           graphsessionsRef.current.getBoundingClientRect();
         width = width + 0.01 * width;
-        height = height - 0.5 * height;
+        height = height - 0.7 * height;
         setGraphDimensions({ width, height });
       }
     };
@@ -75,8 +75,8 @@ export function GraphSessions({ userId }: { userId: number }) {
 
   return (
     <>
-      <section className="bg-tomato rounded-md w-1/3 flex flex-col justify-between pt-8 pb-4" ref={graphsessionsRef}>
-        <p className="text-white opacity-50 w-1/2 pl-8">durée moyenne des cessions</p>
+      <section className="bg-tomato rounded-md w-1/3 flex flex-col justify-between pt-4 pb-2 xl:pt-8 xl:pb-4" ref={graphsessionsRef}>
+        <p className="text-white opacity-50 w-full xl:w-1/2 pl-4 xl:pl-8">durée moyenne des cessions</p>
 
         <LineChart width={graphDimensions.width} height={graphDimensions.height} data={sessions.sessions}>
           <defs>
@@ -91,7 +91,7 @@ export function GraphSessions({ userId }: { userId: number }) {
           <Tooltip content={CustomTooltip} cursor={false}/>
         </LineChart>
 
-        <div className="flex justify-between text-white opacity-50  w-full pt-2 pl-4 pr-4">
+        <div className="flex justify-between text-white opacity-50  w-full lg:pt-2 pl-4 pr-4">
           <p>L</p><p>M</p><p>M</p><p>J</p><p>V</p><p>S</p><p>D</p>
         </div>
       </section>

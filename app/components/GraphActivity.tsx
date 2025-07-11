@@ -13,8 +13,8 @@ export function GraphActivity({ userId }: { userId: number }): ReactElement {
   const [UserActivity, setUserActivity] = useState<Activity | null>(null);
   const graphActivityRef = useRef<HTMLDivElement>(null);
   const [graphDimensions, setGraphDimensions] = useState({
-    width: 730,
-    height: 250,
+    width: 650,
+    height: 180,
   });
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export function GraphActivity({ userId }: { userId: number }): ReactElement {
       if (graphActivityRef.current) {
         let { width, height } =
           graphActivityRef.current.getBoundingClientRect();
-        width = width - 0.02 * width;
+        width = width - 0.05 * width;
         height = height - 0.2 * height;
         setGraphDimensions({ width, height });
       }

@@ -13,7 +13,7 @@ export function KeyDataCard({
 }: KeyDataCardProps): ReactElement {
   return (
     <>
-      <section className="bg-dust rounded-md h-1/4 flex items-center gap-8 pl-8">
+      <section className="bg-dust rounded-md h-1/4 flex items-center gap-8 pl-8 w-full">
         <img src={imageUrl} alt="calories" className="w-[60px] aspect-square" />
         <div className="flex flex-col">
           <p className="font-bold  text-xl">{keyDataCount}</p>
