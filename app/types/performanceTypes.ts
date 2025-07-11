@@ -1,3 +1,7 @@
+export interface KindTranslation {
+  [key: string]: string;
+};
+
 interface PerformanceData {
   value: number;
   kind: number;
