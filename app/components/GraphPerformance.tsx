@@ -2,9 +2,8 @@ import { useEffect, useState, type ReactElement, useRef } from "react";
 import { fetchUserPerformance } from "~/api/fetchUserPerformance";
 import { Loader } from "~/utilities/Loader";
 import type { Performance, KindTranslation } from "~/types/performanceTypes";
-import { RadarChart, PolarGrid, PolarAngleAxis, Radar} from "recharts";
-import type { TickItemTextProps } from 'recharts/types/polar/PolarAngleAxis';
-
+import { RadarChart, PolarGrid, PolarAngleAxis, Radar } from "recharts";
+import type { TickItemTextProps } from "recharts/types/polar/PolarAngleAxis";
 
 /**
  * Component for preformances radar
@@ -34,8 +33,6 @@ export function GraphPerformance({ userId }: { userId: number }): ReactElement {
       if (graphPerformanceRef.current) {
         const { width, height } =
           graphPerformanceRef.current.getBoundingClientRect();
-        // width = width - 0.1 * width;
-        // height = height - 0.1 * height;
         setGraphDimensions({ width, height });
       }
     };
@@ -54,43 +51,81 @@ export function GraphPerformance({ userId }: { userId: number }): ReactElement {
   }
 
   const kindTranslation: KindTranslation = {
-    "cardio": "Cardio",
-    "energy": "Energie",
-    "endurance": "Endurance",
-    "strength": "Force",
-    "speed": "Vitesse",
-    "intensity": "Intensité",
-  }
-  const reorderedUserPerformance = UserPerformance.data.slice(2).concat(UserPerformance.data.slice(0, 2));
-  const formatedUserPerformance = reorderedUserPerformance.map((perf) => (
-      {value: perf.value, kind: kindTranslation[UserPerformance.kind[perf.kind.toString()]]}
-          ))
-  
-const CustomTick = ({ payload, x, y, textAnchor, ...rest }: TickItemTextProps) => {
-  y = Number(y)
-  const newy = payload.coordinate == 90 ? y - 8 : payload.coordinate === -90 ?  y + 10 : y
-  
-  return (
-    <g {...rest}>
-      <text x={x} y={newy} textAnchor={textAnchor} fill="#FFFFFF" fontSize={12} fontWeight="medium">
-        {payload.value}
-      </text>
-    </g>
-  );
-};
+    cardio: "Cardio",
+    energy: "Energie",
+    endurance: "Endurance",
+    strength: "Force",
+    speed: "Vitesse",
+    intensity: "Intensité",
+  };
+  const reorderedUserPerformance = UserPerformance.data
+    .slice(2)
+    .concat(UserPerformance.data.slice(0, 2));
+  const formatedUserPerformance = reorderedUserPerformance.map((perf) => ({
+    value: perf.value,
+    kind: kindTranslation[UserPerformance.kind[perf.kind.toString()]],
+  }));
 
+  const CustomTick = ({
+    payload,
+    x,
+    y,
+    textAnchor,
+    ...rest
+  }: TickItemTextProps) => {
+    y = Number(y);
+    const newy =
+      payload.coordinate == 90
+        ? y - 8
+        : payload.coordinate === -90
+          ? y + 10
+          : y;
+
+    return (
+      <g {...rest}>
+        <text
+          x={x}
+          y={newy}
+          textAnchor={textAnchor}
+          fill="#FFFFFF"
+          fontSize={12}
+          fontWeight="medium"
+        >
+          {payload.value}
+        </text>
+      </g>
+    );
+  };
 
   return (
     <>
-      <section className="bg-coal text-white rounded-md w-1/3" ref={graphPerformanceRef}>
-
-          <RadarChart cx="50%" cy="50%" outerRadius="70%" data={formatedUserPerformance} width={graphDimensions.width} height={graphDimensions.height}>
-            <PolarGrid />
-            <PolarAngleAxis dataKey="kind" stroke="white" tickLine={false} tick={CustomTick}/ >
-            <Radar dataKey="value" fill="var(--color-tomato)" fillOpacity={0.6} activeDot={false}/>
-          </RadarChart>
-
-        </section>
+      <section
+        className="bg-coal text-white rounded-md w-1/3"
+        ref={graphPerformanceRef}
+      >
+        <RadarChart
+          cx="50%"
+          cy="50%"
+          outerRadius="70%"
+          data={formatedUserPerformance}
+          width={graphDimensions.width}
+          height={graphDimensions.height}
+        >
+          <PolarGrid />
+          <PolarAngleAxis
+            dataKey="kind"
+            stroke="white"
+            tickLine={false}
+            tick={CustomTick}
+          />
+          <Radar
+            dataKey="value"
+            fill="var(--color-tomato)"
+            fillOpacity={0.6}
+            activeDot={false}
+          />
+        </RadarChart>
+      </section>
     </>
   );
 }
