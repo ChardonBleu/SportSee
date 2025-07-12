@@ -74,7 +74,7 @@ export function GraphActivity({ userId }: { userId: number }): ReactElement {
 
   return (
     <>
-      <div className="bg-dust rounded-md w-full h-[50%]" ref={graphActivityRef}>
+      <div className="bg-dust rounded-md h-[50%]" ref={graphActivityRef}>
         <section className="flex justify-between items-center p-6">
           <h2 className="text-base text-coal font-medium">
             Activité quotidienne

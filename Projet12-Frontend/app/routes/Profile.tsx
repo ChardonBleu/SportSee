@@ -4,7 +4,7 @@ import { GraphActivity } from "../components/GraphActivity";
 import { GraphSessions } from "../components/GraphSession";
 import { GraphPerformance } from "../components/GraphPerformance";
 import { KeyDataCard } from "../components/KeyDataCard";
-import type { Route } from "../routes/+types/Profile";
+import type { Route } from "./+types/Profile";
 import type { User } from "~/types/userTypes";
 import { GraphScore } from "~/components/GraphScore";
 import { fetchUser } from "~/api/fetchUser";
@@ -38,24 +38,24 @@ export default function Profile({
 
   return (
     <>
-      <main className="flex w-full h-full max-h-full">
+      <main className="flex h-full max-h-full">
         <LeftBar />
-        <section className="flex flex-col w-[100%] xl:w-[95%] h-full pt-[3%] pl-[5%] pr-[5%]">
+        <section className="flex flex-col w-[95%] h-full pt-[3%] pl-[5%] pr-[5%]">
           <h2 className="font-medium text-5xl pb-4">
             Bonjour{" "}
             <span className="text-tomato">{user.userInfos.firstName}</span>
           </h2>
           <h3>Félicitation ! Vous avez explosé vos objectifs hier 👏</h3>
-          <div className="flex w-full h-[85%] pt-8 pb-8">
-            <div className="flex flex-col w-full">
+          <div className="flex items-center gap-4 w-full h-[85%] pt-8 pb-8">
+            <div className="flex flex-col w-3/4">
               <GraphActivity userId={user.id} />
-              <div className="flex  w-full h-[50%] gap-6 mt-6">
+              <div className="flex w-full h-[50%] gap-6 mt-6">
                 <GraphSessions userId={user.id} />
                 <GraphPerformance userId={user.id} />
                 <GraphScore score={user.score} />
               </div>
             </div>
-            <div className="flex flex-col gap-6 ml-6 w-1/4 h-full">
+            <div className="flex flex-col gap-6 ml-6 h-full">
               <KeyDataCard
                 keyDataCount={calorieCount}
                 title="Calories"
