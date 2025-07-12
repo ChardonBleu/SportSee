@@ -9,7 +9,7 @@ import { type ReactElement } from "react";
 export function Header({ id }: { id: number }): ReactElement {
   return (
     <>
-      <header className="flex justify-between items-center  h-20 bg-coal w-full gap-[10%] pl-4 pr-[5%] shadow-md/25">
+      <header className="flex justify-between items-center  h-20 bg-coal w-full gap-[10%] pl-4 pr-[8%] shadow-md/25">
         <img src="/logo.png" alt="SportSee" width="160px"></img>
         <NavLink
           to="/"

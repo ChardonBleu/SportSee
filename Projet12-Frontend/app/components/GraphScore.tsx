@@ -15,7 +15,7 @@ export function GraphScore({ score }: { score: number }): ReactElement {
       if (graphScoreRef.current) {
         const { width, height } = graphScoreRef.current.getBoundingClientRect();
         const minDim = Math.min(width, height);
-        setGraphDimensions(minDim - 0.3 * minDim);
+        setGraphDimensions(minDim - 0.2 * minDim);
       }
     };
     const timer = setTimeout(() => {
@@ -32,45 +32,51 @@ export function GraphScore({ score }: { score: number }): ReactElement {
 
   const data = [
     {
-      name: "0",
-      score: 0,
-      fill: "transparent",
+      name: "userScore",
+      score: 100,
+      fill: "white",
     },
     {
       name: "userScore",
       score: `${userScore}`,
       fill: "var(--color-tomato)",
     },
-    {
-      name: "100",
-      score: 100,
-      fill: "transparent",
-    },
   ];
 
   return (
     <>
       <section
-        className="bg-dust rounded-md w-1/3 font-medium text-base flex flex-col items-center justify-center"
+        className="bg-dust rounded-md w-1/3 font-medium text-base flex flex-col items-center justify-center relative"
         ref={graphScoreRef}
       >
         <p className="pt-2 pl-4 xl:pt-8 xl:pl-8 self-start">Score</p>
-        <RadialBarChart
-          cx="50%"
-          cy="50%"
-          innerRadius="80%"
-          outerRadius="100%"
-          barSize={10}
-          data={data}
-          startAngle={90}
-          endAngle={450}
-          width={graphDimension}
-          height={graphDimension}
-        >
-          <RadialBar dataKey="score" radius={20} />
-        </RadialBarChart>
-
-        <p>{userScore}%</p>
+        <div className="w-[`${graphDimension}px`] aspect-square rounded-full bg-white flex justify-center items-center">
+          <RadialBarChart
+            data={data}
+            cx="50%"
+            cy="50%"
+            innerRadius="70%"
+            outerRadius="110%"
+            startAngle={90}
+            endAngle={450}
+            width={graphDimension}
+            height={graphDimension}
+          >
+            <RadialBar
+              dataKey="score"
+              background={{ fill: "var(--color-dust" }}
+              cornerRadius={20}
+              barSize={12}
+            />
+          </RadialBarChart>
+        </div>
+        <div className="flex flex-col items-center justify-center absolute inset-y-40">
+          <p className="text-coal text-2xl font-bold">{userScore}%</p>
+          <p className="text-ashes2 font-medium text-base">
+            de votre
+            <br /> objectif
+          </p>
+        </div>
       </section>
     </>
   );

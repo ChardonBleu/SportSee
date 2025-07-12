@@ -19,13 +19,13 @@
 body {
   display: flex;
   flex-direction: column;
-  align-items: center;
   min-height: 780px;
   font-family: var(--font-sans);
   font-weight: 400;
   font-size: 18px;
   background-color: white;
   height: 100dvh;
+  width: 100%;
 }
 
 .loader {
@@ -48,43 +48,4 @@ body {
   to {
     transform: rotate(1turn);
   }
-}
-
-/*===== Graph score radial bar =====*/
-.radial-bar-graph {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #fbfbfb;
-  padding: 30px;
-}
-
-.progress {
-  width: 200px;
-  height: 200px;
-}
-.progress .track {
-  fill: yellow;
-}
-.progress .fill {
-  fill: blue;
-  stroke-width: 8;
-  transform: rotate(90deg) translate(0px, -200px);
-  stroke: #ff0101;
-  stroke-dasharray: 597;
-  stroke-dashoffset: -597;
-  transition: stroke-dashoffset 3s;
-}
-.progress .value {
-  fill: rgb(0, 0, 0);
-  text-anchor: middle;
-  font-size: 26px;
-}
-.progress .text {
-  fill: var(--color-ashes);
-  text-anchor: middle;
-}
-.noselect {
-  user-select: none;
-  cursor: default;
 }
