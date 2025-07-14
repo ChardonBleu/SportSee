@@ -40,7 +40,7 @@ export default function Profile({
     <>
       <main className="flex h-full max-h-full">
         <LeftBar />
-        <section className="flex flex-col w-[95%] h-full pt-[3%] pl-[5%] pr-[5%]">
+        <section className="flex flex-col w-[95%] h-full pt-[3%] pl-[5%] xl:pt-[5%] xl:pl-48 pr-[5%]">
           <h2 className="font-medium text-5xl pb-4">
             Bonjour{" "}
             <span className="text-tomato">{user.userInfos.firstName}</span>

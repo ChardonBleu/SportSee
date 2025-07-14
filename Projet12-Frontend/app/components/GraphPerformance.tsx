@@ -111,13 +111,14 @@ export function GraphPerformance({ userId }: { userId: number }): ReactElement {
           width={graphDimensions.width}
           height={graphDimensions.height}
         >
-          <PolarGrid />
+          <PolarGrid radialLines={false} />
           <PolarAngleAxis
             dataKey="kind"
             stroke="white"
             tickLine={false}
             tick={CustomTick}
           />
+
           <Radar
             dataKey="value"
             fill="var(--color-tomato)"
