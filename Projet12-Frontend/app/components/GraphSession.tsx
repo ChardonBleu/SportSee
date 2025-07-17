@@ -103,6 +103,7 @@ export function GraphSessions({ userId }: { userId: number }) {
             strokeWidth={2}
             dot={false}
             activeDot={{ r: 4, fill: "white" }}
+            connectNulls={false}
           />
           <Tooltip content={CustomTooltip} cursor={false} />
         </LineChart>

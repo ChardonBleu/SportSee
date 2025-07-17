@@ -38,15 +38,15 @@ export default function Profile({
 
   return (
     <>
-      <main className="flex h-full max-h-full">
+      <main className="flex h-full max-h-full ">
         <LeftBar />
-        <section className="flex flex-col w-[95%] h-full pt-[3%] pl-[5%] xl:pt-[5%] xl:pl-48 pr-[5%]">
+        <section className="flex flex-col  w-[95%] h-full pt-[3%] pl-[5%] xl:pt-[5%] xl:pl-48">
           <h2 className="font-medium text-5xl pb-4">
             Bonjour{" "}
             <span className="text-tomato">{user.userInfos.firstName}</span>
           </h2>
           <h3>Félicitation ! Vous avez explosé vos objectifs hier 👏</h3>
-          <div className="flex items-center gap-4 w-full h-[85%] pt-8 pb-8">
+          <div className="flex gap-4 w-full h-[85%] pt-8 pb-8">
             <div className="flex flex-col w-3/4">
               <GraphActivity userId={user.id} />
               <div className="flex w-full h-[50%] gap-6 mt-6">
@@ -55,7 +55,7 @@ export default function Profile({
                 <GraphScore score={user.score} />
               </div>
             </div>
-            <div className="flex flex-col gap-6 ml-6 h-full">
+            <div className="flex flex-col justify-between items-end h-full ml-6">
               <KeyDataCard
                 keyDataCount={calorieCount}
                 title="Calories"
