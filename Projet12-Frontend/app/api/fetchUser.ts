@@ -12,6 +12,9 @@ export async function fetchUser(id: string): Promise<User | null> {
   if (!response) {
     throw new Error("Impossible to fetch user datas");
   }
+  if(response.status == 404) {
+    throw new Error("User not found");
+  }
   const data = await response.json();
   const userScore = data.data.score
     ? data.data.score

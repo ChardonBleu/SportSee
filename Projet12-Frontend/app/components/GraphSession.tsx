@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { fetchUserSessions } from "~/api/fetchUserSessions";
-import { Loader } from "~/utilities/Loader";
+import { Loading } from "~/utilities/Loading";
 import type { Sessions } from "~/types/sesssionTypes";
 import { Tooltip, LineChart, Line } from "recharts";
 
@@ -46,7 +46,7 @@ export function GraphSessions({ userId }: { userId: number }) {
   }, []);
 
   if (!UserSessions) {
-    return <Loader />;
+    return <Loading />;
   }
 
   const CustomTooltip = ({

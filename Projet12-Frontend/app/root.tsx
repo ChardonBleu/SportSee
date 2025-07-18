@@ -12,6 +12,10 @@ import type { Route } from "./+types/root";
 import "./app.css";
 import { Header } from "./components/Header";
 
+/**
+ * Pour le contenu des balises link du layout
+ * @return { Route.LinksFunction }
+ */
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
@@ -25,6 +29,10 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
+/**
+ * Pour le contenu des balises meta du layout
+ * @return { array<object> }
+ */
 export function meta() {
   return [
     { title: "SportSee" },
@@ -32,6 +40,10 @@ export function meta() {
   ];
 }
 
+/**
+ * Layout donnant la structure de base de la page index.html
+ * @return { ReactElement }
+ */
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
@@ -50,6 +62,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
+/**
+ * Composant App intégré au Layout à l'emplacement du children
+ * @return { ReactElement }
+ */
 export default function App() {
   // A terme valeur de l'id pour le Header à remplacer par valeur fournie par authentification
   return (
@@ -60,6 +76,10 @@ export default function App() {
   );
 }
 
+/**
+ * Gestion des erreurs de route avec personnalisation du contenu de la page d'erreur 404.
+ * @return { ReactElement }
+ */
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   let message = "Zut!";
   let details = "Une; erreur inattendue est survenue.";

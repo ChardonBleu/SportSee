@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type ReactElement } from "react";
 import { fetchUserActivity } from "~/api/fetchUserActivity";
 import type { Activity } from "~/types/activityTypes";
-import { Loader } from "../utilities/Loader";
+import { Loading } from "../utilities/Loading";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
 
 /**
@@ -46,7 +46,7 @@ export function GraphActivity({ userId }: { userId: number }): ReactElement {
   }, []);
 
   if (!UserActivity) {
-    return <Loader />;
+    return <Loading />;
   }
 
   const CustomTooltip = ({
