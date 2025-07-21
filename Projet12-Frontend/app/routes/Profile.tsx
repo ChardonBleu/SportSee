@@ -7,8 +7,8 @@ import { KeyDataCard } from "../components/KeyDataCard";
 import type { Route } from "./+types/Profile";
 import type { User } from "~/types/userTypes";
 import { GraphScore } from "~/components/GraphScore";
-import { fetchUser } from "~/api/fetchUser";
 import { Loading } from "../utilities/Loading";
+import ApiService from "~/api/ApiService";
 
 /**
  *Profil Component with all user datas
@@ -17,7 +17,7 @@ import { Loading } from "../utilities/Loading";
 export async function clientLoader({
   params,
 }: Route.ClientLoaderArgs): Promise<User | null> {
-  const user = await fetchUser(params.userId);
+  const user =  await ApiService.getUser(params.userId)
   return user;
 }
 

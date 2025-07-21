@@ -1,8 +1,8 @@
 import { useEffect, useState, useRef, type ReactElement } from "react";
-import { fetchUserSessions } from "~/api/fetchUserSessions";
 import { Loading } from "~/utilities/Loading";
 import type { Sessions } from "~/types/sesssionTypes";
 import { Tooltip, LineChart, Line } from "recharts";
+import ApiService from "~/api/ApiService";
 
 /**
  * Component for dayli sessions
@@ -19,7 +19,7 @@ export function GraphSessions({ userId }: { userId: number }): ReactElement {
 
   useEffect(() => {
     const fetchUserSessionsData = async () => {
-      const data = await fetchUserSessions(userId);
+      const data = await ApiService.getUserSessions(userId)
       setUserSessions(data);
     };
     fetchUserSessionsData();

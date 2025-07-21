@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type ReactElement } from "react";
-import { fetchUserActivity } from "~/api/fetchUserActivity";
+import ApiService from "~/api/ApiService";
 import type { Activity } from "~/types/activityTypes";
 import { Loading } from "../utilities/Loading";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
@@ -18,11 +18,11 @@ export function GraphActivity({ userId }: { userId: number }): ReactElement {
   });
 
   useEffect(() => {
-    const fetchUserActivityData = async () => {
-      const data = await fetchUserActivity(userId);
+    const getUserActivityData = async () => {
+      const data = await ApiService.getUserActivity(userId);
       setUserActivity(data);
     };
-    fetchUserActivityData();
+    getUserActivityData();
   }, [userId]);
 
   useEffect(() => {
