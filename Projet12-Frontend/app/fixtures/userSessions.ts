@@ -16,6 +16,6 @@ const data = {
   },
 };
 
-const userSession: Sessions = data.data;
+const userSessions: Sessions = data.data;
 
-export default userSession;
+export default userSessions;

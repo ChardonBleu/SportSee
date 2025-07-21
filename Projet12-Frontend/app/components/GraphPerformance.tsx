@@ -1,9 +1,9 @@
 import { useEffect, useState, type ReactElement, useRef } from "react";
-import { fetchUserPerformance } from "~/api/fetchUserPerformance";
 import { Loading } from "~/utilities/Loading";
 import type { Performance, KindTranslation } from "~/types/performanceTypes";
 import { RadarChart, PolarGrid, PolarAngleAxis, Radar } from "recharts";
 import type { TickItemTextProps } from "recharts/types/polar/PolarAngleAxis";
+import ApiService from "~/api/ApiService";
 
 /**
  * Component for preformances radar
@@ -22,7 +22,7 @@ export function GraphPerformance({ userId }: { userId: number }): ReactElement {
 
   useEffect(() => {
     const fetchUserPerformanceData = async () => {
-      const data = await fetchUserPerformance(userId);
+      const data = await ApiService.getUserPerformance(userId);
       setUserPerformance(data);
     };
     fetchUserPerformanceData();

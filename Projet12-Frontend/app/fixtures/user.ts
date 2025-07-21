@@ -2,7 +2,7 @@ import type { User } from "~/types/userTypes";
 
 const data = {
   data: {
-    id: 18,
+    id: 12,
     userInfos: { firstName: "Cecilia", lastName: "Ratorez", age: 34 },
     score: 0.3,
     keyData: {
