@@ -1,6 +1,6 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, type ReactElement } from "react";
 import { fetchUserSessions } from "~/api/fetchUserSessions";
-import { Loader } from "~/utilities/Loader";
+import { Loading } from "~/utilities/Loading";
 import type { Sessions } from "~/types/sesssionTypes";
 import { Tooltip, LineChart, Line } from "recharts";
 
@@ -9,7 +9,7 @@ import { Tooltip, LineChart, Line } from "recharts";
  * @param { String } userId id of the user
  * @return { ReactElement }
  */
-export function GraphSessions({ userId }: { userId: number }) {
+export function GraphSessions({ userId }: { userId: number }): ReactElement {
   const [UserSessions, setUserSessions] = useState<Sessions | null>(null);
   const graphsessionsRef = useRef<HTMLDivElement>(null);
   const [graphDimensions, setGraphDimensions] = useState({
@@ -46,7 +46,7 @@ export function GraphSessions({ userId }: { userId: number }) {
   }, []);
 
   if (!UserSessions) {
-    return <Loader />;
+    return <Loading />;
   }
 
   const CustomTooltip = ({
@@ -103,6 +103,7 @@ export function GraphSessions({ userId }: { userId: number }) {
             strokeWidth={2}
             dot={false}
             activeDot={{ r: 4, fill: "white" }}
+            connectNulls={false}
           />
           <Tooltip content={CustomTooltip} cursor={false} />
         </LineChart>

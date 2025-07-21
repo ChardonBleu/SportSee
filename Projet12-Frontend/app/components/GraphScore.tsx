@@ -33,11 +33,6 @@ export function GraphScore({ score }: { score: number }): ReactElement {
   const data = [
     {
       name: "userScore",
-      score: 100,
-      fill: "white",
-    },
-    {
-      name: "userScore",
       score: `${userScore}`,
       fill: "var(--color-tomato)",
     },
@@ -46,19 +41,19 @@ export function GraphScore({ score }: { score: number }): ReactElement {
   return (
     <>
       <section
-        className="bg-dust rounded-md w-1/3 font-medium text-base flex flex-col items-center justify-center relative"
+        className="bg-dust rounded-md w-1/3 font-medium text-base flex flex-col items-center justify-center"
         ref={graphScoreRef}
       >
         <p className="pt-2 pl-4 xl:pt-8 xl:pl-8 self-start">Score</p>
-        <div className="w-[`${graphDimension}px`] aspect-square rounded-full bg-white flex justify-center items-center">
+        <div className="flex justify-center items-center mb-8 relative">
           <RadialBarChart
             data={data}
             cx="50%"
             cy="50%"
-            innerRadius="70%"
-            outerRadius="110%"
+            innerRadius="80%"
+            outerRadius="95%"
             startAngle={90}
-            endAngle={450}
+            endAngle={90 + score * 360}
             width={graphDimension}
             height={graphDimension}
           >
@@ -69,13 +64,13 @@ export function GraphScore({ score }: { score: number }): ReactElement {
               barSize={12}
             />
           </RadialBarChart>
-        </div>
-        <div className="flex flex-col items-center justify-center absolute inset-y-40">
-          <p className="text-coal text-2xl font-bold">{userScore}%</p>
-          <p className="text-ashes2 font-medium text-base">
-            de votre
-            <br /> objectif
-          </p>
+          <div className="flex flex-col items-center justify-center absolute bg-white w-[80%] aspect-square rounded-full">
+            <p className="text-coal text-2xl font-bold">{userScore}%</p>
+            <p className="text-ashes2 font-medium text-base">
+              de votre
+              <br /> objectif
+            </p>
+          </div>
         </div>
       </section>
     </>

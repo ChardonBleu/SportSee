@@ -1,6 +1,6 @@
 import { useEffect, useState, type ReactElement, useRef } from "react";
 import { fetchUserPerformance } from "~/api/fetchUserPerformance";
-import { Loader } from "~/utilities/Loader";
+import { Loading } from "~/utilities/Loading";
 import type { Performance, KindTranslation } from "~/types/performanceTypes";
 import { RadarChart, PolarGrid, PolarAngleAxis, Radar } from "recharts";
 import type { TickItemTextProps } from "recharts/types/polar/PolarAngleAxis";
@@ -47,7 +47,7 @@ export function GraphPerformance({ userId }: { userId: number }): ReactElement {
   }, []);
 
   if (!UserPerformance) {
-    return <Loader />;
+    return <Loading />;
   }
 
   const kindTranslation: KindTranslation = {
@@ -111,13 +111,14 @@ export function GraphPerformance({ userId }: { userId: number }): ReactElement {
           width={graphDimensions.width}
           height={graphDimensions.height}
         >
-          <PolarGrid />
+          <PolarGrid radialLines={false} />
           <PolarAngleAxis
             dataKey="kind"
             stroke="white"
             tickLine={false}
             tick={CustomTick}
           />
+
           <Radar
             dataKey="value"
             fill="var(--color-tomato)"

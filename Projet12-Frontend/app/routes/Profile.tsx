@@ -8,15 +8,25 @@ import type { Route } from "./+types/Profile";
 import type { User } from "~/types/userTypes";
 import { GraphScore } from "~/components/GraphScore";
 import { fetchUser } from "~/api/fetchUser";
-import { Loader } from "../utilities/Loader";
+import { Loading } from "../utilities/Loading";
 
-export async function clientLoader({ params }: Route.ClientLoaderArgs) {
+/**
+ *Profil Component with all user datas
+ * @return { Promise<User | null> }
+ */
+export async function clientLoader({
+  params,
+}: Route.ClientLoaderArgs): Promise<User | null> {
   const user = await fetchUser(params.userId);
   return user;
 }
 
-export function HydrateFallback() {
-  return <Loader />;
+/**
+ *Loading page is rendered while clientLoader haven't finished exécution.
+ * @return { ReactElement }
+ */
+export function HydrateFallback(): ReactElement {
+  return <Loading />;
 }
 
 /**
@@ -27,10 +37,11 @@ export default function Profile({
   loaderData,
 }: Route.ComponentProps): ReactElement {
   if (!loaderData) {
-    throw new Error("sorry, no user datas!");
+    throw new Error("sorry, no datas!");
   }
 
   const user: User = loaderData;
+
   const calorieCount = `${user.keyData.calorieCount}kCal`;
   const proteinCount = `${user.keyData.proteinCount}g`;
   const carbohydrateCount = `${user.keyData.carbohydrateCount}g`;
@@ -38,15 +49,15 @@ export default function Profile({
 
   return (
     <>
-      <main className="flex h-full max-h-full">
+      <main className="flex h-full max-h-full ">
         <LeftBar />
-        <section className="flex flex-col w-[95%] h-full pt-[3%] pl-[5%] pr-[5%]">
+        <section className="flex flex-col  w-[95%] h-full pt-[3%] pl-[5%] xl:pt-[5%] xl:pl-48">
           <h2 className="font-medium text-5xl pb-4">
             Bonjour{" "}
-            <span className="text-tomato">{user.userInfos.firstName}</span>
+            <span className="text-tomato">{user?.userInfos.firstName}</span>
           </h2>
           <h3>Félicitation ! Vous avez explosé vos objectifs hier 👏</h3>
-          <div className="flex items-center gap-4 w-full h-[85%] pt-8 pb-8">
+          <div className="flex gap-4 w-full h-[85%] pt-8 pb-8">
             <div className="flex flex-col w-3/4">
               <GraphActivity userId={user.id} />
               <div className="flex w-full h-[50%] gap-6 mt-6">
@@ -55,7 +66,7 @@ export default function Profile({
                 <GraphScore score={user.score} />
               </div>
             </div>
-            <div className="flex flex-col gap-6 ml-6 h-full">
+            <div className="flex flex-col justify-between items-end h-full ml-6">
               <KeyDataCard
                 keyDataCount={calorieCount}
                 title="Calories"

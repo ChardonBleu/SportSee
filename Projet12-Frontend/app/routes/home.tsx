@@ -1,6 +1,11 @@
+import type { ReactElement } from "react";
 import { NavLink } from "react-router";
 
-export default function Home() {
+/**
+ *Home Component with just two users link
+ * @return { ReactElement }
+ */
+export default function Home(): ReactElement {
   const usersId = [12, 18];
 
   return (
