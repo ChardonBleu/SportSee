@@ -14,7 +14,11 @@ export function KeyDataCard({
   return (
     <>
       <section className="bg-dust rounded-md flex items-center gap-8 p-4 xl:p-8 w-full">
-        <img src={imageUrl} alt="calories" className="w-[40px] xl:w-[60px] aspect-square" />
+        <img
+          src={imageUrl}
+          alt="calories"
+          className="w-[40px] xl:w-[60px] aspect-square"
+        />
         <div className="flex flex-col">
           <p className="font-bold  text-xl">{keyDataCount}</p>
           <h2 className="font-medium text-ashes text-sm">{title}</h2>

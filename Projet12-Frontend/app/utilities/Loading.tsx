@@ -1,8 +1,10 @@
+import type { ReactElement } from "react";
+
 /**
- * Loading component if fetch datas is too long
+ * Loading component for too long fetching datas
  * @return { ReactElement }
  */
-export function Loading() {
+export function Loading(): ReactElement {
   return (
     <>
       <section className="bg-dust rounded-md flex flex-col justify-center items-center mt-48">

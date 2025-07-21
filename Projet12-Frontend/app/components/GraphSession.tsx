@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, type ReactElement } from "react";
 import { fetchUserSessions } from "~/api/fetchUserSessions";
 import { Loading } from "~/utilities/Loading";
 import type { Sessions } from "~/types/sesssionTypes";
@@ -9,7 +9,7 @@ import { Tooltip, LineChart, Line } from "recharts";
  * @param { String } userId id of the user
  * @return { ReactElement }
  */
-export function GraphSessions({ userId }: { userId: number }) {
+export function GraphSessions({ userId }: { userId: number }): ReactElement {
   const [UserSessions, setUserSessions] = useState<Sessions | null>(null);
   const graphsessionsRef = useRef<HTMLDivElement>(null);
   const [graphDimensions, setGraphDimensions] = useState({

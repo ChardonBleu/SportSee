@@ -11,12 +11,13 @@ import {
 import type { Route } from "./+types/root";
 import "./app.css";
 import { Header } from "./components/Header";
+import type { ReactElement } from "react";
 
 /**
  * Pour le contenu des balises link du layout
- * @return { Route.LinksFunction }
+ * @return { Array<object> }
  */
-export const links: Route.LinksFunction = () => [
+export const links = (): Array<object> => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
     rel: "preconnect",
@@ -33,7 +34,7 @@ export const links: Route.LinksFunction = () => [
  * Pour le contenu des balises meta du layout
  * @return { array<object> }
  */
-export function meta() {
+export function meta(): Array<object> {
   return [
     { title: "SportSee" },
     { name: "description", content: "Welcome to SportSee!" },
@@ -44,7 +45,11 @@ export function meta() {
  * Layout donnant la structure de base de la page index.html
  * @return { ReactElement }
  */
-export function Layout({ children }: { children: React.ReactNode }) {
+export function Layout({
+  children,
+}: {
+  children: React.ReactNode;
+}): ReactElement {
   return (
     <html lang="en">
       <head>
@@ -66,7 +71,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
  * Composant App intégré au Layout à l'emplacement du children
  * @return { ReactElement }
  */
-export default function App() {
+export default function App(): ReactElement {
   // A terme valeur de l'id pour le Header à remplacer par valeur fournie par authentification
   return (
     <>
@@ -80,7 +85,9 @@ export default function App() {
  * Gestion des erreurs de route avec personnalisation du contenu de la page d'erreur 404.
  * @return { ReactElement }
  */
-export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
+export function ErrorBoundary({
+  error,
+}: Route.ErrorBoundaryProps): ReactElement {
   let message = "Zut!";
   let details = "Une; erreur inattendue est survenue.";
   let stack: string | undefined;

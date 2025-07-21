@@ -8,13 +8,15 @@ import type { Route } from "./+types/Profile";
 import type { User } from "~/types/userTypes";
 import { GraphScore } from "~/components/GraphScore";
 import { fetchUser } from "~/api/fetchUser";
-import { Loading } from "../utilities/Loading"
+import { Loading } from "../utilities/Loading";
 
 /**
  *Profil Component with all user datas
- * @return { ReactElement }
+ * @return { Promise<User | null> }
  */
-export async function clientLoader({ params }: Route.ClientLoaderArgs) {
+export async function clientLoader({
+  params,
+}: Route.ClientLoaderArgs): Promise<User | null> {
   const user = await fetchUser(params.userId);
   return user;
 }
@@ -23,7 +25,7 @@ export async function clientLoader({ params }: Route.ClientLoaderArgs) {
  *Loading page is rendered while clientLoader haven't finished exécution.
  * @return { ReactElement }
  */
-export function HydrateFallback() {
+export function HydrateFallback(): ReactElement {
   return <Loading />;
 }
 
@@ -34,7 +36,6 @@ export function HydrateFallback() {
 export default function Profile({
   loaderData,
 }: Route.ComponentProps): ReactElement {
-  
   if (!loaderData) {
     throw new Error("sorry, no datas!");
   }
