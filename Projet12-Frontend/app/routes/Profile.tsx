@@ -1,4 +1,4 @@
-import type { ReactElement } from "react";
+import { type ReactElement } from "react";
 import { LeftBar } from "../components/LeftBar";
 import { GraphActivity } from "../components/GraphActivity";
 import { GraphSessions } from "../components/GraphSession";
@@ -17,7 +17,7 @@ import ApiService from "~/api/ApiService";
 export async function clientLoader({
   params,
 }: Route.ClientLoaderArgs): Promise<User | null> {
-  const user =  await ApiService.getUser(params.userId)
+  const user = await ApiService.getUser(params.userId);
   return user;
 }
 

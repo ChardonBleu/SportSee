@@ -14,12 +14,12 @@ const data = {
       "6": "intensity",
     },
     data: [
-      { value: 80, kind: 1 },
-      { value: 120, kind: 2 },
-      { value: 140, kind: 3 },
-      { value: 50, kind: 4 },
-      { value: 200, kind: 5 },
-      { value: 90, kind: 6 },
+      { value: 85, kind: 1 },
+      { value: 118, kind: 2 },
+      { value: 180, kind: 3 },
+      { value: 40, kind: 4 },
+      { value: 230, kind: 5 },
+      { value: 110, kind: 6 },
     ],
   },
 };

@@ -3,13 +3,13 @@ import type { User } from "~/types/userTypes";
 const data = {
   data: {
     id: 12,
-    userInfos: { firstName: "Cecilia", lastName: "Ratorez", age: 34 },
-    score: 0.3,
+    userInfos: { firstName: "Olivia", lastName: "Bartolome", age: 36 },
+    score: 0.8,
     keyData: {
-      calorieCount: 2500,
-      proteinCount: 90,
-      carbohydrateCount: 150,
-      lipidCount: 120,
+      calorieCount: 1892,
+      proteinCount: 100,
+      carbohydrateCount: 106,
+      lipidCount: 88,
     },
   },
 };

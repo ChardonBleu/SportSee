@@ -25,7 +25,7 @@ type RouteFiles = {
     id: "root";
     page: "/" | "/profile/:userId";
   };
-  "./routes//home.tsx": {
+  "./routes/home.tsx": {
     id: "routes/home";
     page: "/";
   };

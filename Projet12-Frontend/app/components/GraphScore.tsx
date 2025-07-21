@@ -44,7 +44,7 @@ export function GraphScore({ score }: { score: number }): ReactElement {
         className="bg-dust rounded-md w-1/3 font-medium text-base flex flex-col items-center justify-center"
         ref={graphScoreRef}
       >
-        <p className="pt-2 pl-4 xl:pt-8 xl:pl-8 self-start">Score</p>
+        <h2 className="pt-2 pl-4 xl:pt-8 xl:pl-8 self-start">Score</h2>
         <div className="flex justify-center items-center mb-8 relative">
           <RadialBarChart
             data={data}

@@ -19,7 +19,7 @@ export function GraphSessions({ userId }: { userId: number }): ReactElement {
 
   useEffect(() => {
     const fetchUserSessionsData = async () => {
-      const data = await ApiService.getUserSessions(userId)
+      const data = await ApiService.getUserSessions(userId);
       setUserSessions(data);
     };
     fetchUserSessionsData();
@@ -71,22 +71,20 @@ export function GraphSessions({ userId }: { userId: number }): ReactElement {
     );
   };
 
-  const sessions: Sessions = UserSessions;
-
   return (
     <>
       <section
         className="bg-tomato rounded-md w-1/3 flex flex-col justify-between pt-4 pb-2 xl:pt-8 xl:pb-4"
         ref={graphsessionsRef}
       >
-        <p className="text-white opacity-50 w-full xl:w-1/2 pl-4 xl:pl-8">
+        <h2 className="text-white opacity-50 w-full xl:w-1/2 pl-4 xl:pl-8">
           durée moyenne des cessions
-        </p>
+        </h2>
 
         <LineChart
           width={graphDimensions.width}
           height={graphDimensions.height}
-          data={sessions.sessions}
+          data={UserSessions.sessions}
         >
           <defs>
             <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
