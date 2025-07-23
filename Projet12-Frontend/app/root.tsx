@@ -17,18 +17,20 @@ import type { ReactElement } from "react";
  * Pour le contenu des balises link du layout
  * @return { Array<object> }
  */
-export const links = (): Array<object> => [
-  { rel: "preconnect", href: "https://fonts.googleapis.com" },
-  {
-    rel: "preconnect",
-    href: "https://fonts.gstatic.com",
-    crossOrigin: "anonymous",
-  },
-  {
-    rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap",
-  },
-];
+export function links(): Array<object> {
+  return [
+    { rel: "preconnect", href: "https://fonts.googleapis.com" },
+    {
+      rel: "preconnect",
+      href: "https://fonts.gstatic.com",
+      crossOrigin: "anonymous",
+    },
+    {
+      rel: "stylesheet",
+      href: "https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap",
+    },
+  ];
+}
 
 /**
  * Pour le contenu des balises meta du layout
@@ -37,7 +39,10 @@ export const links = (): Array<object> => [
 export function meta(): Array<object> {
   return [
     { title: "SportSee" },
-    { name: "description", content: "Welcome to SportSee!" },
+    {
+      name: "description",
+      content: "Bienvenue sur SportSee, votre coach sportif !",
+    },
   ];
 }
 
@@ -51,7 +56,7 @@ export function Layout({
   children: React.ReactNode;
 }): ReactElement {
   return (
-    <html lang="en">
+    <html lang="fr">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

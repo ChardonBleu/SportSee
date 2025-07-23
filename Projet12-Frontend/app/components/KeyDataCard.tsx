@@ -16,7 +16,7 @@ export function KeyDataCard({
       <section className="bg-dust rounded-md flex items-center gap-8 p-4 xl:p-8 w-full">
         <img
           src={imageUrl}
-          alt="calories"
+          alt="category logo"
           className="w-[40px] xl:w-[60px] aspect-square"
         />
         <div className="flex flex-col">
